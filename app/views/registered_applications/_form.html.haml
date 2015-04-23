@@ -1,0 +1,11 @@
+= form_for(@registered_application) do |f|
+  - if @registered_application.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@registered_application.errors.count, "error")
+        prohibited this registered_application from being saved:
+      %ul
+        - @registered_application.errors.full_messages.each do |message|
+          %li= message
+  .actions
+    = f.submit

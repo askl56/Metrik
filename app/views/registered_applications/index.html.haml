@@ -1,0 +1,14 @@
+%p#notice= notice
+%h1 Listing Registered Applications
+%table
+  %thead
+    %tr
+      %th{:colspan => "3"}
+  %tbody
+    - @registered_applications.each do |registered_application|
+      %tr
+        %td= link_to 'Show', registered_application
+        %td= link_to 'Edit', edit_registered_application_path(registered_application)
+        %td= link_to 'Destroy', registered_application, method: :delete, data: { confirm: 'Are you sure?' }
+%br
+  = link_to 'New Registered application', new_registered_application_path
