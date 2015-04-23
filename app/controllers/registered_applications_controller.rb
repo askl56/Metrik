@@ -1,9 +1,12 @@
 class RegisteredApplicationsController < ApplicationController
+  before_action :set_registered_application, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   def index
     @registered_applications = RegisteredApplication.all
   end
 
   def show
+    @events = @registered_application.events.group_by(&:name)
   end
 
   def new
@@ -54,6 +57,6 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def registered_application_params
-    params[:registered_application]
+    params.require(:registered_application).permit(:name, :url)
   end
 end

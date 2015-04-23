@@ -1,0 +1,43 @@
+%p#notice= notice
+.panel.panel-primary
+  .panel-heading
+    %h3.panel-title
+      Registered Application
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+    %tbody
+      %tr
+        %td Name:
+        %td
+          = @registered_application.name
+      %tr
+        %td ID:
+        %td
+          = @registered_application.id
+      %tr
+        %td URL:
+        %td
+          = @registered_application.url
+%br
+  .panel.panel-info
+    .panel-heading
+      %h3.panel-title Events
+    %table.table.table-striped.table-bordered.table-hover
+      %thead
+        %caption Events ...
+        %tr
+          %th Name
+          %th Count
+      %tbody
+        - @events.each do |name, events|
+          %tr
+            %td Event Name:
+            %td
+              = name
+          %tr
+            %td count:
+            %td
+              = events.size
+  = link_to 'Edit', edit_registered_application_path(@registered_application)
+  |
+  \#{link_to 'Back', registered_applications_path}

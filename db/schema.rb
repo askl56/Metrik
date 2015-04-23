@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150418024025) do
+ActiveRecord::Schema.define(version: 20150423030802) do
+
+# Could not dump table "events" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "registered_applications", force: :cascade do |t|
     t.string   "name"
