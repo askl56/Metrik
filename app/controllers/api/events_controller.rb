@@ -19,12 +19,13 @@ class API::EventsController < ApplicationController
     else
       render json: "Unregistered application", status: :unprocessable_entity
     end
+  end
 
 
-    private
+  private
 
-    def event_params
-      params.require(:event).permit(:name, payload: params[:product][:payload].try(:keys))
-    end
+  def event_params
+    params.require(:event).permit(:name, payload: params[:product][:payload].try(:keys))
   end
 end
+

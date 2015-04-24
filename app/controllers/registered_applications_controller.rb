@@ -1,6 +1,7 @@
 class RegisteredApplicationsController < ApplicationController
   before_action :set_registered_application, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+
   def index
     @registered_applications = RegisteredApplication.all
   end
