@@ -2,12 +2,15 @@ class RegisteredApplicationsController < ApplicationController
   before_action :set_registered_application, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+  respond_to :html
+
   def index
     @registered_applications = RegisteredApplication.all
   end
 
   def show
-    @events = @registered_application.events.group_by(&:name)
+    @events = @registered_application.events
+    respond_with(@registered_application)
   end
 
   def new
@@ -18,17 +21,10 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def create
-    @registered_applications = RegisteredApplication.new(registered_application_params)
-
-    respond_to do |format|
-      if @registered_application.save
-        format.html { redirect_to @registered_application, notice: 'Registered Application was successfully created.' }
-        format.json { render :show, status: :created, location: @registered_application }
-      else
-        format.html { render :new }
-        format.json { render json: @registered_application.errors, status: :unprocessable_entity }
-      end
-    end
+    @registered_application = RegisteredApplication.new(registered_application_params)
+    @registered_application.user = current_user
+    @registered_application.save!
+    respond_with(@registered_application)
   end
 
   def update
