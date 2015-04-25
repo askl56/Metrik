@@ -22,9 +22,16 @@ class RegisteredApplicationsController < ApplicationController
 
   def create
     @registered_application = RegisteredApplication.new(registered_application_params)
-    @registered_application.user = current_user
-    @registered_application.save!
-    respond_with(@registered_application)
+
+    respond_to do |format|
+      if @registered_application.save
+        format.html { redirect_to @registered_application, notice: 'Registered application was successfully created.' }
+        format.json { render :show, status: :created, location: @registered_application }
+      else
+        format.html { render :new }
+        format.json { render json: @registered_application.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
