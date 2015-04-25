@@ -3,7 +3,6 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.string :name
       t.references :registered_application, index: true
-      t.column :json, :payload, default: {}, null: false
 
       t.timestamps null: false
     end

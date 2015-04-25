@@ -1,13 +1,22 @@
 FactoryGirl.define do
+
   factory :user do
-    confirmed_at Time.now
-    name "Test User"
-    email "test@example.com"
-    password "please123"
+    transient do
+      skip_confirmation true
+    end
+
+    sequence(:email) { |n| "user#{n}@example.tld" }
+    password  "testpassword"
+
+    before(:create) do |user, evaluator|
+      user.skip_confirmation! if evaluator.skip_confirmation
+    end
 
     trait :admin do
       role 'admin'
     end
+
   end
 end
+
 

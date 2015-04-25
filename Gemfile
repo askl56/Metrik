@@ -37,6 +37,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'fuubar'
   gem 'sqlite3'
   gem 'thin'
 end
