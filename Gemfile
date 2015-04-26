@@ -24,9 +24,6 @@ gem 'figaro'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'pry'
-  gem 'pry-rails'
-  gem 'pry-byebug'
   gem 'html2haml'
   gem 'quiet_assets'
   gem 'rails_layout'
@@ -40,6 +37,9 @@ group :development, :test do
   gem 'fuubar'
   gem 'sqlite3'
   gem 'thin'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 group :production do
   gem 'pg'

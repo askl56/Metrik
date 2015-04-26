@@ -64,6 +64,8 @@ describe Event, type: :model do
       @event = Event.new(name: "Google")
     end
 
+    it { should belong_to (:registered_application) }
+
     it "requires name" do
       expect(@event).to validate_presence_of(:name)
     end

@@ -69,6 +69,9 @@ describe RegisteredApplication, type: :model do
       @registered_application = RegisteredApplication.new(name: "Google", url: "http://google.com")
     end
 
+    it { should have_many(:events)}
+    it { should belong_to (:user) }
+
     it "requires name" do
       expect(@registered_application).to validate_presence_of(:name)
     end
