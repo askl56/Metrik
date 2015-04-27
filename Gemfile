@@ -40,6 +40,8 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'rspec-api_helpers', github: 'kollegorna/rspec-api_helpers'
+
 end
 group :production do
   gem 'pg'

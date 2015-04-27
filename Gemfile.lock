@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/kollegorna/rspec-api_helpers.git
+  revision: 425e6db176767e2579e30936e79e8a17b87210f1
+  specs:
+    rspec-api_helpers (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -307,6 +313,7 @@ DEPENDENCIES
   rails (= 4.2.0)
   rails_12factor
   rails_layout
+  rspec-api_helpers!
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
