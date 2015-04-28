@@ -10,7 +10,16 @@ feature 'Home page' do
   #   Then I see "Welcome"
   scenario 'visit the home page' do
     visit root_path
-    expect(page).to have_content 'Welcome'
+    expect(page).to have_content 'Home'
+  end
+
+  scenario 'See site name' do
+    visit root_path
+    expect(page).to have_content 'Metrik'
+  end
+  scenario 'See description' do
+    visit root_path
+    expect(page).to have_content 'API Tracking'
   end
 
 end
