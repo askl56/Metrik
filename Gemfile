@@ -21,6 +21,7 @@ gem 'haml-rails'
 gem 'pundit'
 gem 'simple_form'
 gem 'figaro'
+gem "d3-rails"
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
