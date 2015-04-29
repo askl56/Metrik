@@ -45,7 +45,7 @@ describe RegisteredApplicationsController, type: :controller do
     it "assigns a new app to be @registered_application" do
       sign_in
       get :new
-      expect(assigns(:registered_applications)).to be_a_new(RegisteredApplication)
+      expect(assigns(:registered_application)).to be_a_new(RegisteredApplication)
     end
   end
 
