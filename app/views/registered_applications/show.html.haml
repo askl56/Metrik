@@ -24,7 +24,6 @@
       %h3.panel-title Events
     %table.table.table-striped.table-bordered.table-hover
       %thead
-        %caption Events ...
         %tr
           %th Name
           %th Count
@@ -35,9 +34,9 @@
             %td
               = name
           %tr
-            %td count:
+            %td Count:
             %td
-              = events.size
+              = @events.size
   = link_to 'Edit', edit_registered_application_path(@registered_application)
   |
   \#{link_to 'Back', registered_applications_path}

@@ -14,7 +14,7 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def new
-    @registered_applications = RegisteredApplication.new
+    @registered_application = RegisteredApplication.new
   end
 
   def edit

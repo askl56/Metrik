@@ -9,7 +9,7 @@ class API::EventsController < ApplicationController
       # @event = Event.new(event_params)
       name = params[:event][:name]
       payload = params[:event][:payload]
-      @event = registered_application.events.new(name: name, payload: payload)
+      @event = registered_application.events.new(name: name)
 
       if @event.save
         render json: @event, status: :created

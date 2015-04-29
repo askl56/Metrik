@@ -22,6 +22,8 @@ gem 'pundit'
 gem 'simple_form'
 gem 'figaro'
 gem "d3-rails"
+gem "rack-cors", :require => 'rack/cors'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
