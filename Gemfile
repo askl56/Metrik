@@ -7,8 +7,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'rack-cors', :require => 'rack/cors'
-
 
 group :development, :test do
   gem 'byebug'
@@ -23,6 +21,7 @@ gem 'simple_form'
 gem 'figaro'
 gem "d3-rails"
 gem "rack-cors", :require => 'rack/cors'
+gem 'simplecov', :require => false, :group => :test
 
 group :development do
   gem 'better_errors'
