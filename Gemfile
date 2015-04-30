@@ -43,6 +43,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'rspec-api_helpers', github: 'kollegorna/rspec-api_helpers'
+  gem 'regressor', '~> 0.4.2'
+  gem 'rspec-activemodel-mocks'
 end
 group :production do
   gem 'pg'
@@ -54,6 +56,6 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 2.7.0'
   gem 'email_spec'
 end
