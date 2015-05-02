@@ -25,13 +25,13 @@ class RegisteredApplicationsController < ApplicationController
 
     respond_to do |format|
       if @registered_application.save
-        @registered_application.verification_code = SecureRandom.hex
         format.html { redirect_to @registered_application, notice: 'Registered application was successfully created.' }
         format.json { render :show, status: :created, location: @registered_application }
       else
         format.html { render :new }
         format.json { render json: @registered_application.errors, status: :unprocessable_entity }
       end
+      @registered_application.verification_code = SecureRandom.hex
     end
   end
 

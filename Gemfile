@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'groupdate'
+gem 'bourbon'
 
 group :development, :test do
   gem 'byebug'
@@ -27,7 +28,6 @@ gem 'simplecov', :require => false, :group => :test
 gem 'meta-tags'
 gem 'chartkick'
 gem 'active_model_serializers'
-gem 'groupdate'
 gem 'redcarpet'
 gem 'nokogiri'
 
