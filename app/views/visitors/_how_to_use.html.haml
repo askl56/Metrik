@@ -1,0 +1,22 @@
+%h4
+  How to track your application via Metrik:
+%ul.list-group
+  %li.list-group-item
+    = "1. "
+    = link_to "Register your application", new_registered_application_path, class: 'btn btn-primary'
+  %li.list-group-item
+    %div
+      = "2. "
+      = link_to "Get the application verification code", registered_applications_path, class: 'btn btn-success'
+      = ", then complete following meta and add it into your application html:"
+    %script{src: 'https://gist.github.com/askl56/2b5d4519dc33cf4729a5.js'}
+  %li.list-group-item
+    = "3. Include following javascript file into your application html:"
+    %script{src: 'https://gist.github.com/askl56/1d15e2c7ca2642d9f00d.js'}
+  %li.list-group-item
+    = "4. Run following code when you want to track an event"
+    %script{src: 'https://gist.github.com/askl56/65e103b44a31b9241680.js'}
+  %li.list-group-item
+    = "5. "
+    = link_to "View registered applications", registered_applications_path, class: 'btn btn-success'
+    = ", click each application to view tracked events statistics."

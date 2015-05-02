@@ -1,5 +1,6 @@
-%h1 Editing Registered Application
+%h1
+  = "#{@registered_application.name}"
+
 = render 'form'
-= link_to 'Show', @registered_application
-|
-\#{link_to 'Back', registered_applications_path}
+
+= link_to 'Back', registered_applications_path

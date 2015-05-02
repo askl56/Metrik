@@ -28,6 +28,7 @@ gem 'chartkick'
 gem 'active_model_serializers'
 gem 'groupdate'
 gem 'redcarpet'
+gem 'nokogiri'
 
 
 group :development do

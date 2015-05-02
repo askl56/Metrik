@@ -1,4 +1,5 @@
 class API::V1::EventsController < API::ApiController
+  before_filter :cors_preflight_check
   after_filter :cors_set_access_control_headers
 
   def index
@@ -36,9 +37,14 @@ class API::V1::EventsController < API::ApiController
   end
 
   def cors_set_access_control_headers
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
-    headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
-    headers['Access-Control-Max-Age'] = "1728000"
+    origin = request.env['HTTP_ORIGIN']
+    app = RegisteredApplication.find_by(url: origin)
+
+    if app && ( app.verified || AppVerifier.new(app).verified? )
+      headers['Access-Control-Allow-Origin'] = origin
+      headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
+      headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
+      headers['Access-Control-Max-Age'] = "1728000"
+    end
   end
 end

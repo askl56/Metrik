@@ -25,6 +25,7 @@ class RegisteredApplicationsController < ApplicationController
 
     respond_to do |format|
       if @registered_application.save
+        @registered_application.verification_code = SecureRandom.hex
         format.html { redirect_to @registered_application, notice: 'Registered application was successfully created.' }
         format.json { render :show, status: :created, location: @registered_application }
       else

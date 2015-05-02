@@ -1,19 +1,17 @@
-= form_for(@registered_application) do |f|
-  - if @registered_application.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@registered_application.errors.count, "error")
-        prohibited this registered_application from being saved:
-      %ul
-        - @registered_application.errors.full_messages.each do |message|
-          %li= message
-  .form-group
-    = f.label :name, class: "control-label"
-    = f.text_field :name, class: 'form-control'
-  .form-group
-    = f.label :url, class: "control-label"
-    = f.text_field :url, class: 'form-control'
-  %br
-    .action
-      .controls
-        = f.submit("Register", class: "btn btn-inverse")
+.row
+  = form_for @registered_application do |f|
+    - if @registered_application.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@registered_application.errors.count, "error")} prohibited this registered_application from being saved:"
+        %ul
+          - @registered_application.errors.full_messages.each do |msg|
+            %li= msg
+
+    .form-group
+      = f.label :name
+      = f.text_field :name, autofocus: true, class:'form-control', placeholder: 'Enter name'
+    .form-group
+      = f.label :url
+      = f.text_field :url, class:'form-control', placeholder: 'Enter URL'
+    .form-group
+      = f.submit 'Save', class: 'btn btn-success'

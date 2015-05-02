@@ -1,42 +1,14 @@
+= javascript_include_tag '//www.google.com/jsapi', 'chartkick'
+
 %p#notice= notice
-.panel.panel-primary
-  .panel-heading
-    %h3.panel-title
-      Registered Application
-  %table.table.table-striped.table-bordered.table-hover
-    %thead
-    %tbody
-      %tr
-        %td Name:
-        %td
-          = @registered_application.name
-      %tr
-        %td ID:
-        %td
-          = @registered_application.id
-      %tr
-        %td URL:
-        %td
-          = @registered_application.url
-%br
-  .panel.panel-info
-    .panel-heading
-      %h3.panel-title Events
-    %table.table.table-striped.table-bordered.table-hover
-      %thead
-        %tr
-          %th Name
-          %th Count
-      %tbody
-        - @events.each do |name, events|
-          %tr
-            %td Event Name:
-            %td
-              = name
-          %tr
-            %td Count:
-            %td
-              = @events.size
-  = link_to 'Edit', edit_registered_application_path(@registered_application)
-  |
-  \#{link_to 'Back', registered_applications_path}
+
+%h1
+  = "#{@registered_application.name} (#{@registered_application.url})"
+
+= pie_chart @events.group(:name).count
+- if Rails.env.to_sym == :production
+  = line_chart @events.group_by_day(:created_at).count
+
+= link_to 'Edit', edit_registered_application_path(@registered_application), class: 'btn btn-success'
+\|
+= link_to 'Back', registered_applications_path
