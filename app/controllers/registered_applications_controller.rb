@@ -32,6 +32,7 @@ class RegisteredApplicationsController < ApplicationController
         format.json { render json: @registered_application.errors, status: :unprocessable_entity }
       end
       @registered_application.verification_code = SecureRandom.hex
+      @registered_application.save
     end
   end
 

@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-class AppVerifier < ActiveRecord::Base
+class AppVerifier
   attr_accessor :app
 
   def initialize(app)

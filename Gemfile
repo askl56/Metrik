@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'groupdate'
+gem 'coveralls', require: false
 
 group :development, :test do
   gem 'byebug'
