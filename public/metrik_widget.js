@@ -3,7 +3,7 @@ var Blocmetrics = {
     var myData = { "event": { "name": name, "meta": meta } };
 
     var request = new XMLHttpRequest();
-    request.open("POST", "https://sambath-blocmetrics.herokuapp.com/api/events", true);
+    request.open("POST", "https://metrik.herokuapp.com/api/events", true);
     request.setRequestHeader('Content-Type', 'application/json');
 
     request.send(JSON.stringify(myData));

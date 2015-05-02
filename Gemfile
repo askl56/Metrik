@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.2.0'
+
 gem 'rails', '4.2.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -22,6 +23,7 @@ gem 'figaro'
 gem "d3-rails"
 gem "rack-cors", :require => 'rack/cors'
 gem 'simplecov', :require => false, :group => :test
+gem 'meta-tags'
 
 group :development do
   gem 'better_errors'
