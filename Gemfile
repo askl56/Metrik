@@ -9,7 +9,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'groupdate'
-gem 'bourbon'
 
 group :development, :test do
   gem 'byebug'
@@ -22,7 +21,6 @@ gem 'haml-rails'
 gem 'pundit'
 gem 'simple_form'
 gem 'figaro'
-gem "d3-rails"
 gem "rack-cors", :require => 'rack/cors'
 gem 'simplecov', :require => false, :group => :test
 gem 'meta-tags'
@@ -30,8 +28,6 @@ gem 'chartkick'
 gem 'active_model_serializers'
 gem 'redcarpet'
 gem 'nokogiri'
-
-
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
