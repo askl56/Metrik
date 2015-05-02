@@ -1,4 +1,4 @@
-var Blocmetrics = {
+var Metrik = {
   track: function(name, meta) {
     var myData = { "event": { "name": name, "meta": meta } };
 

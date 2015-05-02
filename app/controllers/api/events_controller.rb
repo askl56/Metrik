@@ -1,5 +1,5 @@
-class API::EventsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+class API::V1::EventsController < API::ApiController
+  after_filter :cors_set_access_control_headers
 
   def index
     @events = Event.all
@@ -33,5 +33,12 @@ class API::EventsController < ApplicationController
   def event_params
     unknown_property_keys = params[:event][:meta].try(:keys)
     params.require(:event).permit(:name, { meta: unknown_property_keys })
+  end
+
+  def cors_set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
+    headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
+    headers['Access-Control-Max-Age'] = "1728000"
   end
 end

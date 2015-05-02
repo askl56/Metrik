@@ -24,6 +24,11 @@ gem "d3-rails"
 gem "rack-cors", :require => 'rack/cors'
 gem 'simplecov', :require => false, :group => :test
 gem 'meta-tags'
+gem 'chartkick'
+gem 'active_model_serializers'
+gem 'groupdate'
+gem 'redcarpet'
+
 
 group :development do
   gem 'better_errors'
