@@ -9,23 +9,16 @@ class AppVerifier
   end
 
   def verified?
-    verified = false
+    unless @app.verified
+      begin
+        doc = Nokogiri::HTML(open(@app.url))
+        v_code = doc.xpath('//meta[@name="metrik"]/@content').first.value
+        app.verified!
 
-    if @app
-      verified = @app.verified
-
-      if !verified
-        begin
-          doc = Nokogiri::HTML(open(@app.url))
-          v_code = doc.xpath('//meta[@name="metrik"]/@content').map(&:value)
-
-          verified = @app.verification_code == v_code[0] if v_code.count > 0
-
-        rescue Exception => e
-          verified = false
-        end
+      rescue Exception => e
+        verified = false
       end
     end
-    verified
+    app.verified
   end
 end

@@ -69,9 +69,5 @@ describe Event, type: :model do
     it "requires name" do
       expect(@event).to validate_presence_of(:name)
     end
-
-    it "requires unique name" do
-      expect(@event).to validate_uniqueness_of(:name)
-    end
   end
 end
