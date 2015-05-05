@@ -7,5 +7,5 @@ var Metrik = {
     request.setRequestHeader('Content-Type', 'application/json');
 
     request.send(JSON.stringify(myData));
-  }
-}
+  };
+};

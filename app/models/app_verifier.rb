@@ -13,7 +13,6 @@ class AppVerifier
       begin
         doc = Nokogiri::HTML(open(@app.url))
         v_code = doc.xpath('//meta[@name="metrik"]/@content').first.value
-        app.verified!
 
       rescue Exception => e
         verified = false
