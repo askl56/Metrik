@@ -62,4 +62,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 2.7.0'
   gem 'email_spec'
+  gem 'rspec-inherit_from_matcher'
 end

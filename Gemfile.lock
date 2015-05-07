@@ -141,7 +141,7 @@ GEM
     json (1.8.2)
     launchy (2.4.3)
       addressable (~> 2.3)
-    loofah (2.0.1)
+    loofah (2.0.2)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
@@ -171,7 +171,7 @@ GEM
       activesupport (>= 3.0.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
-    rack (1.6.0)
+    rack (1.6.1)
     rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -227,6 +227,10 @@ GEM
     rspec-expectations (3.2.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
+    rspec-inherit_from_matcher (1.0.0)
+      bundler
+      rake
+      rspec (>= 2.9)
     rspec-mocks (3.2.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
@@ -345,6 +349,7 @@ DEPENDENCIES
   regressor (~> 0.4.2)
   rspec-activemodel-mocks
   rspec-api_helpers!
+  rspec-inherit_from_matcher
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
