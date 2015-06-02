@@ -35,6 +35,7 @@ group :development do
   gem 'rails_layout'
   gem 'spring-commands-rspec'
   gem 'erb2haml'
+  gem 'brakeman', :require => false
 end
 group :development, :test do
   gem 'factory_girl_rails'
