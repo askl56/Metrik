@@ -13,9 +13,8 @@ class API::V1::EventsController < API::ApiController
   end
 
   def create
-
     registered_application = RegisteredApplication.find_by(url: request.env['HTTP_ORIGIN'])
-    not_found if RegisteredApplication.nil? or !RegisteredApplication.verified
+    not_found if RegisteredApplication.nil? || !RegisteredApplication.verified
 
     if registered_application
       @event = Event.new(event_params)
@@ -28,19 +27,18 @@ class API::V1::EventsController < API::ApiController
     end
   end
 
-
   private
 
   def event_params
     unknown_property_keys = params[:event][:meta].try(:keys)
-    params.require(:event).permit(:name, { meta: unknown_property_keys })
+    params.require(:event).permit(:name, meta: unknown_property_keys)
   end
 
   def cors_set_access_control_headers
     origin = request.env['HTTP_ORIGIN']
     app = RegisteredApplication.find_by(url: origin)
 
-    if app && ( app.verified || AppVerifier.new(app).verified? )
+    if app && (app.verified || AppVerifier.new(app).verified?)
       headers['Access-Control-Allow-Origin'] = origin
       headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
       headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'

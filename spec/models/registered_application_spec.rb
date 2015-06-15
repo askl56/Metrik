@@ -64,12 +64,11 @@ describe RegisteredApplication, type: :model do
   end
 
   context "validation" do
-
     before do
       @registered_application = RegisteredApplication.new(name: "Google", url: "http://google.com")
     end
 
-    it { should have_many(:events)}
+    it { should have_many(:events) }
     it { should belong_to (:user) }
 
     it "requires name" do
@@ -87,6 +86,5 @@ describe RegisteredApplication, type: :model do
     it "requires unique url" do
       expect(@registered_application).to validate_uniqueness_of(:url)
     end
-
   end
 end

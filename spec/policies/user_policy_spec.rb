@@ -43,5 +43,4 @@ describe UserPolicy do
       expect(subject).to permit(admin, other_user)
     end
   end
-
 end

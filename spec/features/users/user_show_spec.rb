@@ -9,7 +9,6 @@ Warden.test_mode!
 #   I want to visit my user profile page
 #   So I can see my personal account data
 feature 'User profile page', :devise do
-
   after(:each) do
     Warden.test_reset!
   end
@@ -38,5 +37,4 @@ feature 'User profile page', :devise do
   #   visit user_path(other)
   #   expect(page).to have_content 'Access denied.'
   # end
-
 end

@@ -5,8 +5,8 @@ describe 'users/index.html.haml' do
   context 'when there are 2 users' do
     before(:each) do
       assign(:users, [
-               stub_model(User, email: '1@example.com'),
-               stub_model(User, email: '2@example.com')
+        stub_model(User, email: '1@example.com'),
+        stub_model(User, email: '2@example.com')
       ])
     end
 

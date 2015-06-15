@@ -6,7 +6,6 @@ Warden.test_mode!
 #   I want to edit my user profile
 #   So I can change my email address
 feature 'User edit', :devise do
-
   after(:each) do
     Warden.test_reset!
   end
@@ -22,7 +21,7 @@ feature 'User edit', :devise do
     fill_in 'Email', with: 'newemail@example.com'
     fill_in 'Current password', with: user.password
     click_button 'Update'
-    txts = [I18n.t( 'devise.registrations.updated'), I18n.t( 'devise.registrations.update_needs_confirmation')]
+    txts = [I18n.t('devise.registrations.updated'), I18n.t('devise.registrations.update_needs_confirmation')]
     expect(page).to have_content(/.*#{txts[0]}.*|.*#{txts[1]}.*/)
   end
 
@@ -38,5 +37,4 @@ feature 'User edit', :devise do
     expect(page).to have_content 'Edit User'
     expect(page).to have_field('Email', with: me.email)
   end
-
 end

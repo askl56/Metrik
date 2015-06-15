@@ -2,7 +2,6 @@ require "rails_helper"
 
 describe RegisteredApplicationsController, type: :routing do
   describe "routing" do
-
     it "routes to #index" do
       expect(get: "/registered_applications").to route_to("registered_applications#index")
     end
@@ -30,6 +29,5 @@ describe RegisteredApplicationsController, type: :routing do
     it "routes to #destroy" do
       expect(delete: "/registered_applications/1").to route_to("registered_applications#destroy", id: "1")
     end
-
   end
 end

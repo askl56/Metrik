@@ -59,7 +59,6 @@ describe Event, type: :model do
   end
 
   context "validation" do
-
     before do
       @event = Event.new(name: "Google")
     end

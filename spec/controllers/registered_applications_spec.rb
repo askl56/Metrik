@@ -67,10 +67,9 @@ describe RegisteredApplicationsController, type: :controller do
     context "with invalid attributes" do
       it "does not create the registered_application" do
         sign_in
-        expect{
+        expect do
           post :create, registered_application: { name: "" }
-        }.to_not change(RegisteredApplication, :count)
-
+        end.to_not change(RegisteredApplication, :count)
       end
 
       it 'renders the "new" view' do
@@ -127,10 +126,10 @@ describe RegisteredApplicationsController, type: :controller do
       it "changes @registered_application's attributes" do
         sign_in
         patch :update, id: @registered_application,
-          registered_application: attributes_for(:registered_application,
-                                                 name: 'Facebook',
-                                                 url: 'http://facebook.com')
-          @registered_application.reload
+                       registered_application: attributes_for(:registered_application,
+                                                              name: 'Facebook',
+                                                              url: 'http://facebook.com')
+        @registered_application.reload
         expect(@registered_application.name).to eq('Facebook')
         expect(@registered_application.url).to eq('http://facebook.com')
       end
@@ -146,10 +145,10 @@ describe RegisteredApplicationsController, type: :controller do
       it "does not change @registered_application's attributes" do
         sign_in
         patch :update, id: @registered_application,
-          registered_application: attributes_for(:registered_application,
-                                                 name: 'Facebook',
-                                                 url: nil)
-          @registered_application.reload
+                       registered_application: attributes_for(:registered_application,
+                                                              name: 'Facebook',
+                                                              url: nil)
+        @registered_application.reload
         expect(@registered_application.name).to_not eq('Facebook')
         expect(@registered_application.url).to eq('http://google.com')
       end
@@ -157,10 +156,10 @@ describe RegisteredApplicationsController, type: :controller do
       it "re-renders the edit template" do
         sign_in
         patch :update, id: @registered_application,
-          registered_application: attributes_for(:registered_application,
-                                                 name: nil,
-                                                 url: nil)
-          expect(response).to render_template :edit
+                       registered_application: attributes_for(:registered_application,
+                                                              name: nil,
+                                                              url: nil)
+        expect(response).to render_template :edit
       end
     end
 
@@ -175,9 +174,9 @@ describe RegisteredApplicationsController, type: :controller do
         it "changes @registered_application's attributes" do
           sign_in
           patch :update, id: @registered_application,
-            registered_application: attributes_for(:registered_application,
-                                                   name: 'Facebook',
-                                                   url: 'http://facebook.com'), format: :json
+                         registered_application: attributes_for(:registered_application,
+                                                                name: 'Facebook',
+                                                                url: 'http://facebook.com'), format: :json
           @registered_application.reload
           expect(@registered_application.name).to eq('Facebook')
           expect(@registered_application.url).to eq('http://facebook.com')
@@ -194,9 +193,9 @@ describe RegisteredApplicationsController, type: :controller do
         it "does not change @registered_application's attributes" do
           sign_in
           patch :update, id: @registered_application,
-            registered_application: attributes_for(:registered_application,
-                                                   name: 'Facebook',
-                                                   url: nil), format: :json
+                         registered_application: attributes_for(:registered_application,
+                                                                name: 'Facebook',
+                                                                url: nil), format: :json
           @registered_application.reload
           expect(@registered_application.name).to_not eq('Facebook')
           expect(@registered_application.url).to eq('http://google.com')
@@ -205,9 +204,9 @@ describe RegisteredApplicationsController, type: :controller do
         it "responds with 422" do
           sign_in
           patch :update, id: @registered_application,
-            registered_application: attributes_for(:registered_application,
-                                                   name: nil,
-                                                   url: nil), format: :json
+                         registered_application: attributes_for(:registered_application,
+                                                                name: nil,
+                                                                url: nil), format: :json
           expect(response).to have_http_status(422)
         end
       end
@@ -221,9 +220,9 @@ describe RegisteredApplicationsController, type: :controller do
 
     it "deletes the application" do
       sign_in
-      expect{
+      expect do
         delete :destroy, id: @registered_application
-      }.to change(RegisteredApplication, :count).by(-1)
+      end.to change(RegisteredApplication, :count).by(-1)
     end
 
     it "redirects to registered_application#index" do
@@ -235,9 +234,9 @@ describe RegisteredApplicationsController, type: :controller do
     context "JSON DESTROY" do
       it "deletes the application" do
         sign_in
-        expect{
+        expect do
           delete :destroy, id: @registered_application, format: :json
-        }.to change(RegisteredApplication, :count).by(-1)
+        end.to change(RegisteredApplication, :count).by(-1)
       end
 
       it "responds with 204" do
@@ -266,7 +265,7 @@ describe RegisteredApplicationsController, type: :controller do
     describe "POST #CREATE" do
       it "requires login" do
         post :create, id: create(:registered_application),
-          registered_application: attributes_for(:registered_application)
+                      registered_application: attributes_for(:registered_application)
         expect(response).to redirect_to new_user_session_path
       end
     end
@@ -274,7 +273,7 @@ describe RegisteredApplicationsController, type: :controller do
     describe "PUT #UPDATE" do
       it "requires login" do
         put :update, id: create(:registered_application),
-          registered_application: attributes_for(:registered_application)
+                     registered_application: attributes_for(:registered_application)
         expect(response).to redirect_to new_user_session_path
       end
     end

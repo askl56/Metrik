@@ -17,5 +17,4 @@ class API::ApiController < ActionController::Base
 
     render json: response.to_json, status: status
   end
-
 end

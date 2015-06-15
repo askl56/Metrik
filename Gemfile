@@ -21,8 +21,8 @@ gem 'haml-rails'
 gem 'pundit'
 gem 'simple_form'
 gem 'figaro'
-gem "rack-cors", :require => 'rack/cors'
-gem 'simplecov', :require => false, :group => :test
+gem "rack-cors", require: 'rack/cors'
+gem 'simplecov', require: false, group: :test
 gem 'meta-tags'
 gem 'chartkick'
 gem 'active_model_serializers'
@@ -36,7 +36,7 @@ group :development do
   gem 'rails_layout'
   gem 'spring-commands-rspec'
   gem 'erb2haml'
-  gem 'brakeman', :require => false
+  gem 'brakeman', require: false
 end
 group :development, :test do
   gem 'factory_girl_rails'
