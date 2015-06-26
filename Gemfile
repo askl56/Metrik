@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'groupdate'
 gem 'rubocop'
+gem 'airbrake'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
