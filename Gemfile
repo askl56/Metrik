@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'groupdate'
 gem 'rubocop'
 gem 'airbrake'
+gem 'memory_profiler'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
