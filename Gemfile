@@ -30,6 +30,7 @@ gem 'chartkick'
 gem 'active_model_serializers'
 gem 'redcarpet'
 gem 'nokogiri'
+gem 'annotate', github: 'ctran/annotate_models'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

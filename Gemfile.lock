@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/ctran/annotate_models.git
+  revision: d878a5b784ee0f703e9ee677bc0231dc24159512
+  specs:
+    annotate (2.6.10)
+      activerecord (>= 3.2, <= 4.3)
+      rake (~> 10.4)
+
+GIT
   remote: git://github.com/kollegorna/rspec-api_helpers.git
   revision: 783c65472dd3bf37c7dfea489635cd3e0cca8cd2
   specs:
@@ -345,6 +353,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   airbrake
+  annotate!
   better_errors
   binding_of_caller
   bootstrap-sass
