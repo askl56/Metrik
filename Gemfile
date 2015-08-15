@@ -39,6 +39,7 @@ group :development do
   gem 'rails_layout'
   gem 'spring-commands-rspec'
   gem 'erb2haml'
+  gem 'parallel_tests'
   gem 'brakeman', require: false
 end
 group :development, :test do
