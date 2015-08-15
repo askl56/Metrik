@@ -1,3 +1,10 @@
+/db/test.sqlite35
+/db/test.sqlite36
+/db/test.sqlite37
+/db/test.sqlite38
+/db/test.sqlite32
+/db/test.sqlite33
+/db/test.sqlite34
 #----------------------------------------------------------------------------
 # Ignore these files when commiting to a git repository.
 #
