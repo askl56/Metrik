@@ -7,15 +7,15 @@ describe RegisteredApplication, type: :model do
 
   context "db" do
     context "indexes" do
-      it { should have_db_index(:user_id) }
+      it { is_expected.to have_db_index(:user_id) }
     end
 
     context "columns" do
-      it { should have_db_column(:name).of_type(:string) }
-      it { should have_db_column(:url).of_type(:string) }
-      it { should have_db_column(:user_id).of_type(:integer) }
-      it { should have_db_column(:created_at).of_type(:datetime).with_options(null: false) }
-      it { should have_db_column(:updated_at).of_type(:datetime).with_options(null: false) }
+      it { is_expected.to have_db_column(:name).of_type(:string) }
+      it { is_expected.to have_db_column(:url).of_type(:string) }
+      it { is_expected.to have_db_column(:user_id).of_type(:integer) }
+      it { is_expected.to have_db_column(:created_at).of_type(:datetime).with_options(null: false) }
+      it { is_expected.to have_db_column(:updated_at).of_type(:datetime).with_options(null: false) }
     end
   end
 
@@ -68,8 +68,8 @@ describe RegisteredApplication, type: :model do
       @registered_application = RegisteredApplication.new(name: "Google", url: "http://google.com")
     end
 
-    it { should have_many(:events) }
-    it { should belong_to (:user) }
+    it { is_expected.to have_many(:events) }
+    it { is_expected.to belong_to (:user) }
 
     it "requires name" do
       expect(@registered_application).to validate_presence_of(:name)

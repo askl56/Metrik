@@ -7,14 +7,14 @@ describe Event, type: :model do
 
   context "db" do
     context "indexes" do
-      it { should_not have_db_index(:id) }
+      it { is_expected.not_to have_db_index(:id) }
     end
 
     context "columns" do
-      it { should have_db_column(:name).of_type(:string) }
-      it { should have_db_column(:registered_application_id).of_type(:integer) }
-      it { should have_db_column(:created_at).of_type(:datetime).with_options(null: false) }
-      it { should have_db_column(:updated_at).of_type(:datetime).with_options(null: false) }
+      it { is_expected.to have_db_column(:name).of_type(:string) }
+      it { is_expected.to have_db_column(:registered_application_id).of_type(:integer) }
+      it { is_expected.to have_db_column(:created_at).of_type(:datetime).with_options(null: false) }
+      it { is_expected.to have_db_column(:updated_at).of_type(:datetime).with_options(null: false) }
     end
   end
 
@@ -63,7 +63,7 @@ describe Event, type: :model do
       @event = Event.new(name: "Google")
     end
 
-    it { should belong_to (:registered_application) }
+    it { is_expected.to belong_to (:registered_application) }
 
     it "requires name" do
       expect(@event).to validate_presence_of(:name)
